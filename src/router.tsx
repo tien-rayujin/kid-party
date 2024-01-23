@@ -3,7 +3,6 @@ import Root from "./routes/root";
 import ErrorPage from "./routes/error_page";
 import Contact from "./routes/contact";
 import Auth from "./routes/auth/Auth";
-import React from "react";
 
 const router = createBrowserRouter([
   {
