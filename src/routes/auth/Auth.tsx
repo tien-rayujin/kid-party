@@ -1,13 +1,20 @@
 import { useState } from "react";
-import Center_SingleItem from "../../layouts/Center_SingleItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import GoogleLoginButton from "../../components/Auth/GoogleLoginButton";
+import { AuthContext } from "../../contexts/AuthContext";
 
 function Auth() {
+  const [user, setUser] = useState(undefined);
+
   return (
-    <Center_SingleItem>
-      <SignIn />
-    </Center_SingleItem>
+    <AuthContext.Provider value={{ user, setUser }}>
+      <div className="grid grid-cols-2 h-screen my-auto">
+        <div className="flex items-center justify-center col-span-1">
+          <SignIn />
+        </div>
+      </div>
+    </AuthContext.Provider>
   );
 }
 
@@ -70,6 +77,8 @@ function SignIn() {
           </button>
         </div>
       </form>
+
+      <GoogleLoginButton />
     </div>
   );
 }
